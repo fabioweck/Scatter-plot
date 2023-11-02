@@ -67,7 +67,7 @@
             btnReloadData.BackgroundImageLayout = ImageLayout.Center;
             btnReloadData.FlatAppearance.BorderColor = Color.White;
             btnReloadData.FlatAppearance.BorderSize = 0;
-            btnReloadData.Location = new Point(816, 45);
+            btnReloadData.Location = new Point(847, 14);
             btnReloadData.Name = "btnReloadData";
             btnReloadData.Size = new Size(50, 50);
             btnReloadData.TabIndex = 0;

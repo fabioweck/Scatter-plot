@@ -13,12 +13,14 @@ namespace ScatterGraph
     public partial class Graph : UserControl
     {
         public Graphics G;
-        public List<Plot> PlotsBR; //Lists to collect plots separated by countries
+
+        public List<Plot> PlotsBR;          //Lists to collect plots separated by countries
         public List<Plot> PlotsCA;
         public List<Plot> PlotsCustom;
-        public List<List<Plot>> AllPlots;
 
-        public int plotSize = 14; //Defines the initial size of the plot
+        public List<List<Plot>> AllPlots;   //List of all lists
+
+        public int plotSize = 18; //Defines the initial size of the plot
 
         public SolidBrush BRbrush = new SolidBrush(Color.FromArgb(150, 0, 204, 0));                //Defines a color for each element displayed on the chart
         SolidBrush CAbrush = new SolidBrush(Color.FromArgb(150, 204, 0, 0));
@@ -339,13 +341,12 @@ namespace ScatterGraph
             }
 
 
-            //Finally, three loops iterates over each collection of data
+            //Finally, the nested loop below iterates over each collection of data and draws on the screen
 
             foreach(List<Plot> list in AllPlots)
             {
                 foreach (Plot plot in list)
                 {
-
                     double x = xAxis - (plotSize / 2) + (plot.Age * 8.8);   //800px | width divided by 90 years
                     double y = yAxis - (plotSize / 2) - (plot.Hours * 40);  //480px | height divided by 12 hours
 
