@@ -11,11 +11,13 @@ namespace ScatterGraph
 
         public int Age {  get; set; }
         public double Hours { get; set; }
+        public SolidBrush Brush { get; set; }
 
-        public Plot(int age, double hours) 
+        public Plot(int age, double hours, SolidBrush brush) 
         {
             Age = age;
             Hours = hours;
+            Brush = brush;
         }
     }
 }
