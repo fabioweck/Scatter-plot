@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             pnlGraph = new Panel();
+            btnReloadData = new Button();
             btnAddPlot = new Button();
             groupBox1 = new GroupBox();
             btnRemovePlot = new Button();
@@ -38,26 +40,47 @@
             label1 = new Label();
             btnIncreaseSize = new Button();
             btnDecreaseSize = new Button();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            closeToolStripMenuItem = new ToolStripMenuItem();
+            toolTip = new ToolTip(components);
+            pnlGraph.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numHoursSelected).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAgeSelected).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlGraph
             // 
             pnlGraph.BackColor = SystemColors.ScrollBar;
-            pnlGraph.Location = new Point(260, 71);
+            pnlGraph.Controls.Add(btnReloadData);
+            pnlGraph.Location = new Point(258, 80);
             pnlGraph.Name = "pnlGraph";
             pnlGraph.Size = new Size(910, 610);
             pnlGraph.TabIndex = 0;
             // 
+            // btnReloadData
+            // 
+            btnReloadData.BackColor = SystemColors.Control;
+            btnReloadData.BackgroundImageLayout = ImageLayout.Center;
+            btnReloadData.FlatAppearance.BorderColor = Color.White;
+            btnReloadData.FlatAppearance.BorderSize = 0;
+            btnReloadData.Location = new Point(816, 45);
+            btnReloadData.Name = "btnReloadData";
+            btnReloadData.Size = new Size(50, 50);
+            btnReloadData.TabIndex = 0;
+            btnReloadData.UseVisualStyleBackColor = false;
+            btnReloadData.Click += btnReloadData_Click;
+            // 
             // btnAddPlot
             // 
-            btnAddPlot.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddPlot.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddPlot.ForeColor = SystemColors.ControlDarkDark;
-            btnAddPlot.Location = new Point(62, 213);
+            btnAddPlot.Location = new Point(58, 217);
             btnAddPlot.Name = "btnAddPlot";
-            btnAddPlot.Size = new Size(94, 29);
+            btnAddPlot.Size = new Size(88, 38);
             btnAddPlot.TabIndex = 1;
             btnAddPlot.Text = "Add";
             btnAddPlot.UseVisualStyleBackColor = true;
@@ -73,21 +96,22 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(btnAddPlot);
             groupBox1.FlatStyle = FlatStyle.Popup;
+            groupBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.ForeColor = SystemColors.ButtonHighlight;
-            groupBox1.Location = new Point(27, 71);
+            groupBox1.Location = new Point(25, 80);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(204, 292);
+            groupBox1.Size = new Size(204, 321);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Custom plot";
             // 
             // btnRemovePlot
             // 
-            btnRemovePlot.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRemovePlot.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnRemovePlot.ForeColor = SystemColors.ControlDarkDark;
-            btnRemovePlot.Location = new Point(62, 248);
+            btnRemovePlot.Location = new Point(58, 261);
             btnRemovePlot.Name = "btnRemovePlot";
-            btnRemovePlot.Size = new Size(94, 29);
+            btnRemovePlot.Size = new Size(88, 38);
             btnRemovePlot.TabIndex = 6;
             btnRemovePlot.Text = "Remove";
             btnRemovePlot.UseVisualStyleBackColor = true;
@@ -96,18 +120,20 @@
             // numHoursSelected
             // 
             numHoursSelected.DecimalPlaces = 1;
+            numHoursSelected.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             numHoursSelected.Increment = new decimal(new int[] { 5, 0, 0, 65536 });
-            numHoursSelected.Location = new Point(66, 168);
+            numHoursSelected.Location = new Point(65, 168);
             numHoursSelected.Name = "numHoursSelected";
-            numHoursSelected.Size = new Size(74, 27);
+            numHoursSelected.Size = new Size(74, 30);
             numHoursSelected.TabIndex = 5;
             numHoursSelected.Value = new decimal(new int[] { 80, 0, 0, 65536 });
             // 
             // numAgeSelected
             // 
-            numAgeSelected.Location = new Point(66, 85);
+            numAgeSelected.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            numAgeSelected.Location = new Point(65, 85);
             numAgeSelected.Name = "numAgeSelected";
-            numAgeSelected.Size = new Size(74, 27);
+            numAgeSelected.Size = new Size(74, 30);
             numAgeSelected.TabIndex = 4;
             numAgeSelected.Value = new decimal(new int[] { 25, 0, 0, 0 });
             // 
@@ -136,7 +162,7 @@
             // btnIncreaseSize
             // 
             btnIncreaseSize.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnIncreaseSize.Location = new Point(711, 687);
+            btnIncreaseSize.Location = new Point(709, 696);
             btnIncreaseSize.Name = "btnIncreaseSize";
             btnIncreaseSize.Size = new Size(94, 54);
             btnIncreaseSize.TabIndex = 3;
@@ -148,7 +174,7 @@
             // btnDecreaseSize
             // 
             btnDecreaseSize.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDecreaseSize.Location = new Point(611, 687);
+            btnDecreaseSize.Location = new Point(609, 696);
             btnDecreaseSize.Name = "btnDecreaseSize";
             btnDecreaseSize.Size = new Size(94, 54);
             btnDecreaseSize.TabIndex = 4;
@@ -157,23 +183,60 @@
             btnDecreaseSize.UseVisualStyleBackColor = true;
             btnDecreaseSize.Click += ChangePlotSize;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1192, 28);
+            menuStrip1.TabIndex = 6;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem, closeToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(133, 26);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
+            // closeToolStripMenuItem
+            // 
+            closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            closeToolStripMenuItem.Size = new Size(133, 26);
+            closeToolStripMenuItem.Text = "Exit";
+            closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSlateGray;
-            ClientSize = new Size(1182, 753);
+            ClientSize = new Size(1192, 778);
             Controls.Add(btnDecreaseSize);
             Controls.Add(btnIncreaseSize);
             Controls.Add(groupBox1);
             Controls.Add(pnlGraph);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Sleep Quality Data";
+            pnlGraph.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numHoursSelected).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAgeSelected).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -188,5 +251,11 @@
         private Button btnIncreaseSize;
         private Button btnDecreaseSize;
         private Button btnRemovePlot;
+        private Button btnReloadData;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripMenuItem closeToolStripMenuItem;
+        private ToolTip toolTip;
     }
 }
